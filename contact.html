@@ -26,14 +26,8 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- reCAPTCHA V3 security to form -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        function onSubmit() {
-            document.getElementById("myForm").submit()
-        }
-    </script>
   </head>
+
   <body>
     <div class="page">
     <nav id="colorlib-main-nav" class="border" role="navigation">
@@ -93,7 +87,7 @@
             <!-- Contact form -->
             <!-- Uses Formspree for form handling -->
             <div class="col-md-6 pr-md-5">
-              <form id="myForm" action="https://formspree.io/f/xldpvljk" method="POST">
+              <form action="https://formspree.io/f/xldpvljk" method="POST">
                 <div class="form-group">
                   <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
                 </div>
@@ -107,9 +101,7 @@
                   <textarea id="message" name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
                 </div>
                 <div class="form-group">
-                  <!-- reCAPTCHA intergration -->
-                  <button class="btn btn-primary py-3 px-5 g-recaptcha" data-sitekey="reCAPTCHA_site_key"
-                    data-callback='onSubmit' data-action='submit'>Send Message</button>
+                  <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
                 </div>
               </form>
             </div>
@@ -159,6 +151,15 @@
 
       </div>
     </div>
+
+    <!-- clear form after submission -->
+    <script>
+      window.onbeforeunload = () => {
+        for(const form of document.getElementsByTagName('form')) {
+          form.reset();
+        }
+      }
+    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
