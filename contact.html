@@ -85,7 +85,7 @@
             <!-- Contact form -->
             <!-- Uses Formspree for form handling -->
             <div class="col-md-6 pr-md-5">
-              <form id="contactForm" method="POST">
+              <form action="https://formspree.io/f/xldpvljk" method="POST">
                 <div class="form-group">
                   <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
                 </div>
@@ -150,16 +150,6 @@
       </div>
     </div>
 
-    <!-- FormSpree Form handling -->
-    <script src="config.js"></script>
-    <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formspreeUrl = `https://formspree.io/${CONFIG.formId}`;
-        this.action = formspreeUrl;
-        this.submit();
-      });
-    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
